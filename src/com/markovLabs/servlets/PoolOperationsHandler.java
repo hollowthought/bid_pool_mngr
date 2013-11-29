@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/pool/*")
+@WebServlet("/bid_pool_mngr/*")
 public class PoolOperationsHandler extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
