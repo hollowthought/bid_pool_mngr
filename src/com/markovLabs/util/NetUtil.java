@@ -23,6 +23,7 @@ public class NetUtil {
 			HttpURLConnection con=(HttpURLConnection) req.openConnection();
 			OutputStream out=con.getOutputStream();
 			out.write(code);
+			out.write(',');
 			out.write(id);
 			out.flush();
 			out.close();
