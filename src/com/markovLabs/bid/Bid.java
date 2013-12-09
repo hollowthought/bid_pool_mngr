@@ -1,13 +1,13 @@
 package com.markovLabs.bid;
 
 public class Bid {
-
 	private int id;
 	private double bidValue=0;
 	private int bid_id;
 	
-	public static String ID_FIELD_NAME="id";
-	public static String BID_FIELD_NAME="bid";
+	public static final String ID_FIELD_NAME="id";
+	public static final String BID_FIELD_NAME="bid";
+	public static final String BID_FIELD_NAME_VALUE = "bid_value";
 	
 	public Bid(int id,int bid_id) {
 		this.id=id;
