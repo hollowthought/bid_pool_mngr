@@ -31,10 +31,18 @@ public class PoolOperationsHandler extends HttpServlet {
 		String mesg=String.valueOf(buf);
 		String values[]=mesg.split(",");
 		int command=Integer.parseInt(values[0]);
-		int id=Integer.parseInt(values[1]);
+		int bid_id,id = 0;
+		if(values.length==2){
+			bid_id=Integer.parseInt(values[1]);
+		}
+		else{
+			id=Integer.parseInt(values[1]);
+			bid_id=Integer.parseInt(values[2]);
+		}
+		
 		switch(command){
-			case PoolOperationsHandler.CREATE_OP:BidServer.bids.put(id,new Bid(id));break;
-			case PoolOperationsHandler.DELETE_OP:BidServer.bids.remove(id);break;
+			case PoolOperationsHandler.CREATE_OP:BidServer.bids.put(bid_id,new Bid(id,bid_id));break;
+			case PoolOperationsHandler.DELETE_OP:BidServer.bids.remove(bid_id);break;
 		}
 	}
 }

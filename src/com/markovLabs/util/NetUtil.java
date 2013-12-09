@@ -17,14 +17,18 @@ public class NetUtil {
 	private static final String POOL_BID_URL_IN="http://localhost:8080/bid_pool_mngr/bid?mode=in";
 	private static final String POOL_BID_URL_OUT="http://localhost:8080/bid_pool_mngr/bid?mode=out";
 	
-	public static void sendRequestToPool(Integer id,int code){
+	public static void sendRequestToPool(Integer id,Integer bid_id, Integer op){
 		try {
 			URL req=new URL(POOL_URL);
 			HttpURLConnection con=(HttpURLConnection) req.openConnection();
 			OutputStream out=con.getOutputStream();
-			out.write(code);
+			out.write(op);
+			if(id!=null){
+				out.write(',');
+				out.write(id);
+			}
 			out.write(',');
-			out.write(id);
+			out.write(bid_id);
 			out.flush();
 			out.close();
 			
